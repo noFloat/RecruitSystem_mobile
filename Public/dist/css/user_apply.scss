@@ -1,0 +1,143 @@
+    @import 'base.scss';
+    
+    #header {
+        @include pageTitle(1, 1);
+    }
+
+
+    .bar{
+        padding-bottom: 40px;
+        border-top: #f2f2f2 3px solid;
+        padding: 0 2rem;
+    }
+    .title p{
+        color:#212121;
+        font-size: 3rem;
+        text-align: center;
+        margin: 3.75rem 0 4rem 0;
+    }
+    .rate{
+        height: 5.38rem;
+        margin-bottom: 5rem;
+    }
+    .step{
+        height: 100%;
+        width: 16.66666%;
+        float: left;
+        position: relative;
+    }
+    .step .line{
+        width: 98%;
+        height: 0.5rem;
+        display: block;
+        border-width: 2px 0 2px 0;
+        border-style: solid;
+        position: absolute;
+        top: 1rem;
+        left: 0;
+    }
+    .step .mid{
+        width: 3.75rem;
+        height: 2.5rem;
+        background-color: #fff;
+        margin: 0 auto;
+        position: relative;
+    }
+    .step .point{
+        height: 2.8rem;
+        width: 2.8rem;
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+    .step .cube{
+        height: 0.75px;
+        width: 0.375px;
+        margin: 0.25rem auto 0;
+    }
+    .step p{
+        margin: 0.5rem auto;
+        font-size: 2rem;
+        text-align: center;
+    }
+    .red .line{
+        border-color: #fc6e51;
+    }
+    .red .point,.red .cube{
+        background-color: #fc6e51;
+    }
+    .ora .line{
+        border-color: #ffa454;
+    }
+    .ora .point,.ora .cube{
+        background-color: #ffa454;
+    }
+    .yell .line{
+        border-color: #ffce54;
+    }
+    .yell .point,.yell .cube{
+        background-color: #ffce54;
+    }
+    .gre .line{
+        border-color: #b3df56;
+    }
+    .gre .point,.gre .cube{
+        background-color: #b3df56;
+    }
+    .gre .line{
+        border-color: #b3df56;
+    }
+    .gre .point,.gre .cube{
+        background-color: #b3df56;
+    }
+    .cyan .line{
+        border-color: #50f2ed;
+    }
+    .cyan .point,.cyan .cube{
+        background-color: #4fc1e9;
+    }
+    .blue .line{
+        border-color: #50f2ed;
+    }
+    .blue .point,.blue .cube{
+        background-color: #4fc1e9;
+    }
+    .off .line{
+        border-color: #dcdcdc !important;
+    }
+    .off .point,.off .cube{
+        background-color: #dcdcdc !important;
+    }
+    .off p{
+        color: #dcdcdc !important;
+    }
+    .bar a{
+        color:#212121;
+        font-size: 38px;
+        display: block;
+        text-align: center;
+        text-decoration:none;
+    }
+    .screen{
+        position: fixed;
+        bottom: 0;
+        height: 27rem;
+        width: 100%;
+        background-color: #fff;
+    }
+    
+    .user-info,.apply-btn {
+        @include orangeButton;
+    }
+    
+    .apply-btn-container {
+        width: 90%;
+        position: fixed;
+        bottom: 5rem; 
+    }
+
+    .user-info-btn-container {
+        width: 90%;
+        position: fixed;
+        bottom: 17rem; 
+    }
+

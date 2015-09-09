@@ -1,0 +1,29 @@
+    @import 'base.scss';
+    
+    #header {
+        // @include pageTitle(0);
+    }
+
+    #container {
+        @include pmClear;
+        height: 800px;
+        padding: 1rem 3.5rem 0;
+        .intro-logo {
+            img {
+                text-align: center;
+                width: 100%;
+            }
+        }
+        .intro-content {
+            p {
+                font-size: 3rem;
+                line-height: 4rem;
+                color: #000;
+            }
+        }
+        .apply-btn {
+            @include orangeButton;
+        }
+    }
+    
+    

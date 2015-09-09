@@ -1,0 +1,247 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "iconfont";
+  src: url("../font/iconfont.eot");
+  /* IE9*/
+  src: url("../font/iconfont.eot?#iefix") format("embedded-opentype"), url("../font/iconfont.woff") format("woff"), url("../font/iconfont.ttf") format("truetype"), url("../font/iconfont.svg#iconfont") format("svg");
+  /* iOS 4.1- */ }
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-jikediancanicon35:before {
+  content: "\e791"; }
+
+.icon-yonghu:before {
+  content: "\e686"; }
+
+@media only screen and (min-width: 640px) and (max-width: 720px) {
+  html {
+    font-size: 67% !important; } }
+@media only screen and (min-width: 720px) and (max-width: 770px) {
+  html {
+    font-size: 80% !important; } }
+@media only screen and (min-width: 770px) and (max-width: 840px) {
+  html {
+    font-size: 90% !important; } }
+@media only screen and (min-width: 840px) and (max-width: 1080px) {
+  html {
+    font-size: 86% !important; } }
+@media only screen and (min-width: 1080px) and (max-width: 1280px) {
+  html {
+    font-size: 85% !important; } }
+@media only screen and (min-width: 1280px) and (max-width: 1440px) {
+  html {
+    font-size: 100% !important; } }
+body, img, ul, li, p, span, input {
+  padding: 0;
+  margin: 0; }
+
+li {
+  list-style: none; }
+
+a {
+  color: #000; }
+
+button {
+  border: none;
+  outline: none; }
+
+/*
+ * 各种高度常量
+ */
+/*
+ * 颜色常量
+ */
+html, body {
+  width: 100%; }
+
+/*
+ * 组件
+ */
+.pageTitle-p, #header p {
+  padding: 0;
+  margin: 0;
+  float: left;
+  font-size: 4rem;
+  color: white;
+  text-align: center;
+  line-height: 10rem;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: .5rem; }
+
+.pageTitle-i, #header div i {
+  font-size: 4rem;
+  line-height: 10rem;
+  color: white;
+  cursor: pointer; }
+
+/*
+ *  页面头部组件
+ *  参数一 $iconCount 头部icon图标的个数，数量为0-2个
+ *  参数二 $position  当头部icon图标为一个时图标的位置 1->左边 2->右边
+ *  @include @pageTitle 调用
+ *  注意: icon图标用div包裹
+ */
+#header {
+  padding: 0;
+  margin: 0;
+  background-color: #ffbb44;
+  height: 10rem;
+  width: 100%; }
+  #header div {
+    float: left;
+    width: 10%;
+    height: 10rem;
+    cursor: pointer; }
+  #header p {
+    width: 85%; }
+  #header p {
+    padding-right: 5%; }
+
+.bar {
+  padding-bottom: 40px;
+  border-top: #f2f2f2 3px solid;
+  padding: 0 2rem; }
+
+.title p {
+  color: #212121;
+  font-size: 3rem;
+  text-align: center;
+  margin: 3.75rem 0 4rem 0; }
+
+.rate {
+  height: 5.38rem;
+  margin-bottom: 5rem; }
+
+.step {
+  height: 100%;
+  width: 16.66666%;
+  float: left;
+  position: relative; }
+
+.step .line {
+  width: 98%;
+  height: 0.5rem;
+  display: block;
+  border-width: 2px 0 2px 0;
+  border-style: solid;
+  position: absolute;
+  top: 1rem;
+  left: 0; }
+
+.step .mid {
+  width: 3.75rem;
+  height: 2.5rem;
+  background-color: #fff;
+  margin: 0 auto;
+  position: relative; }
+
+.step .point {
+  height: 2.8rem;
+  width: 2.8rem;
+  margin: 0 auto;
+  border-radius: 50%; }
+
+.step .cube {
+  height: 0.75px;
+  width: 0.375px;
+  margin: 0.25rem auto 0; }
+
+.step p {
+  margin: 0.5rem auto;
+  font-size: 2rem;
+  text-align: center; }
+
+.red .line {
+  border-color: #fc6e51; }
+
+.red .point, .red .cube {
+  background-color: #fc6e51; }
+
+.ora .line {
+  border-color: #ffa454; }
+
+.ora .point, .ora .cube {
+  background-color: #ffa454; }
+
+.yell .line {
+  border-color: #ffce54; }
+
+.yell .point, .yell .cube {
+  background-color: #ffce54; }
+
+.gre .line {
+  border-color: #b3df56; }
+
+.gre .point, .gre .cube {
+  background-color: #b3df56; }
+
+.gre .line {
+  border-color: #b3df56; }
+
+.gre .point, .gre .cube {
+  background-color: #b3df56; }
+
+.cyan .line {
+  border-color: #50f2ed; }
+
+.cyan .point, .cyan .cube {
+  background-color: #4fc1e9; }
+
+.blue .line {
+  border-color: #50f2ed; }
+
+.blue .point, .blue .cube {
+  background-color: #4fc1e9; }
+
+.off .line {
+  border-color: #dcdcdc !important; }
+
+.off .point, .off .cube {
+  background-color: #dcdcdc !important; }
+
+.off p {
+  color: #dcdcdc !important; }
+
+.bar a {
+  color: #212121;
+  font-size: 38px;
+  display: block;
+  text-align: center;
+  text-decoration: none; }
+
+.screen {
+  position: fixed;
+  bottom: 0;
+  height: 27rem;
+  width: 100%;
+  background-color: #fff; }
+
+.user-info, .apply-btn {
+  text-align: center;
+  font-size: 3.5rem;
+  letter-spacing: .2rem;
+  color: #fff;
+  background-color: #ffbb44;
+  height: 9.5rem;
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid #666;
+  -webkit-font-smoothing: subpixel-antialiased; }
+
+.apply-btn-container {
+  width: 90%;
+  position: fixed;
+  bottom: 5rem; }
+
+.user-info-btn-container {
+  width: 90%;
+  position: fixed;
+  bottom: 17rem; }
+
+/*# sourceMappingURL=user_apply.css.map */

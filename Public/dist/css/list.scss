@@ -1,0 +1,39 @@
+	
+	@import 'base.scss';
+
+	#header {
+        // @include pageTitle(0);
+    }
+
+    #org-list {
+		padding-left: 3rem;
+		div {
+			@include pmClear;
+		}
+		.org-container {
+			height: 11rem;
+			width: 100%;
+			.org-logo {
+				float: left;
+				width: 15%;
+				padding: 1.5rem 0;
+				img {
+					width: 7rem;
+					height: 7rem;
+					border: 1px #eee solid;
+					border-radius: 50%;
+				}
+			}	
+			.org-name {
+				@include pmClear;
+				float: left;
+				width: 85%;
+				font-size: 3rem;
+				line-height: 3rem;
+				padding: 3.5rem 0;
+				border-bottom: 2px rgb(245, 245, 245) solid;
+			}
+		}
+    }
+
+	
