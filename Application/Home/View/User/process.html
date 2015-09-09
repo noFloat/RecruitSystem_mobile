@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1 ,user-scalable=no">
+	<title>进度查看</title>
+	<script src="__PUBLIC__/js/rem.js"></script>
+	<link rel="stylesheet" href="__PUBLIC__/css/process.css">
+</head>
+<body>
+	<div class="header">进度查看</div>
+	<h1 class="department">红岩网校工作站运营维护部</h1>
+	<div class="process"></div>
+	<div class="status">
+		<h1>当前状态:<span>一面中</span></h1><!-- 资料审核中，x面中，录取成功 -->
+		<h2>面试时间:<span>9月17日17:00</span></h2>
+		<h2>面试地点:<span>2304</span></h2>
+	</div>
+	<div class="button">
+		<a href="" class="back">返回</a>	
+	</div>
+	<script>
+		var steps = 4, //总的阶段数
+			nowstep = 2, //目前阶段
+			strings = '',
+			colors = ['#fc6e51','#ffa454','#ffce54','#b3df56','#50f2ed','#4fc1e9'],
+			types = ['资料审核','一面','二面','三面','四面','录取']; //阶段名称
+			processLine = document.querySelector('.process'),
+			stepWidth = parseInt(processLine.clientWidth / steps) - 4.5;
+		for (var i = 0; i < steps; i++) {
+			if (nowstep <= i) {
+				strings += '<div class="step" style="width:' + stepWidth + 'px">';
+				strings += '<div class="line" style="border-color:#999;width:100%"></div>';
+				strings += '<div class="mid"><div class="point" style="background-color:#999"></div>';
+				strings += '<div class="cube" style="background-color:#999"></div></div>';
+			} else {
+				strings += '<div class="step" style="width:' + stepWidth + 'px">';
+				strings += '<div class="line" style="border-color:' + colors[i] + ';width:100%"></div>';
+				strings += '<div class="mid"><div class="point" style="background-color:' + colors[i] + '"></div>';
+				strings += '<div class="cube" style="background-color:' + colors[i] + '"></div></div>';
+			}
+			
+			if (i == (steps-1)) {
+				strings += '<div class="type">录取</div>';
+			} else {
+				strings += '<div class="type">' + types[i] + '</div>';
+			}
+			strings += '</div>';
+			
+		}
+		processLine.innerHTML = strings;
+	</script>
+</body>
+</html>

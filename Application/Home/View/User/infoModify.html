@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>完善个人信息</title>
+		<meta name="viewport" content="width=device-width">
+		<script src="__PUBLIC__/js/meta.js"></script>
+		<link rel="stylesheet" href="__PUBLIC__/css/user_info_modify.css">
+	</head>
+
+	<body>
+			
+		<div id="header">
+			<p>完善信息</p>
+			<div>
+				<i class="iconfont">&#xe791;</i>
+			</div>
+		</div>
+
+
+		<div id="main">
+		<form action  = "{:U('Userinfomodify/index')}" method  ="post">
+			<div class="form-control">
+				<span>姓名</span>
+				<span>王洋辉</span>
+			</div>
+			<div class="form-control">
+				<span>学号</span>
+				<span>2013214046</span>
+			</div>
+			<div class="form-control">
+				<span>学院</span>
+				<span>软件工程学院</span>
+			</div>
+			<div class="form-control">
+				<span>手机</span>
+				<input type="text" name="user_number" placeholder="请填写你的电话号码">
+			</div>
+			<div class="form-control">
+				<span>个人介绍</span>
+				<textarea placeholder="可以写自己兴趣爱好，过去任职情况以及活动经历等。可以填兴趣爱好啊，可以填活动经历"></textarea>
+			</div>
+			<div class="form-control">
+				<button class="ensure-change" type = "submit">修改信息</button>
+			</div>
+		</form>
+		</div>
+
+
+
+	</body>
+
+</html>
