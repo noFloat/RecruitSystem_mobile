@@ -63,7 +63,7 @@ html, body {
 /*
  * 组件
  */
-.pageTitle-p {
+.pageTitle-p, #header p {
   padding: 0;
   margin: 0;
   float: left;
@@ -74,7 +74,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   letter-spacing: .5rem; }
 
-.pageTitle-i {
+.pageTitle-i, #header div i {
   font-size: 4rem;
   line-height: 10rem;
   color: white;
@@ -84,9 +84,30 @@ html, body {
  *  页面头部组件
  *  参数一 $iconCount 头部icon图标的个数，数量为0-2个
  *  参数二 $position  当头部icon图标为一个时图标的位置 1->左边 2->右边
- *  @include @pageTitle 调用
+ *  @include pageTitle 调用
  *  注意: icon图标用div包裹
  */
+#header {
+  padding: 0;
+  margin: 0;
+  background-color: #ffbb44;
+  height: 10rem;
+  width: 100%; }
+  #header div {
+    float: left;
+    width: 10%;
+    height: 10rem;
+    text-align: center;
+    cursor: pointer; }
+    #header div a {
+      color: transparent; }
+  #header p {
+    width: 74%; }
+  #header div:first-child {
+    padding-left: 3%; }
+  #header div:last-child {
+    padding-right: 3%; }
+
 #main {
   padding: 2rem 3.5rem;
   padding-top: 5rem; }

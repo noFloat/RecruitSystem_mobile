@@ -84,7 +84,7 @@ html, body {
  *  页面头部组件
  *  参数一 $iconCount 头部icon图标的个数，数量为0-2个
  *  参数二 $position  当头部icon图标为一个时图标的位置 1->左边 2->右边
- *  @include @pageTitle 调用
+ *  @include pageTitle 调用
  *  注意: icon图标用div包裹
  */
 #header {
@@ -97,11 +97,15 @@ html, body {
     float: left;
     width: 10%;
     height: 10rem;
+    text-align: center;
     cursor: pointer; }
+    #header div a {
+      color: transparent; }
+  #header div {
+    padding-right: 5%; }
   #header p {
-    width: 85%; }
-  #header p {
-    padding-left: 5%; }
+    width: 77.75%;
+    padding-left: 7.25%; }
 
 #main {
   padding: 2rem 3.5rem;

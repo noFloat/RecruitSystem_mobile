@@ -84,7 +84,7 @@ html, body {
  *  页面头部组件
  *  参数一 $iconCount 头部icon图标的个数，数量为0-2个
  *  参数二 $position  当头部icon图标为一个时图标的位置 1->左边 2->右边
- *  @include @pageTitle 调用
+ *  @include pageTitle 调用
  *  注意: icon图标用div包裹
  */
 
