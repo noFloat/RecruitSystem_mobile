@@ -16,7 +16,7 @@ class LoginController extends Controller {
     	$cinfo = D('users');
     	$nowtime = time();
     	session('testnum','0');
-    	$condition['studentnum'] = $this->studentNum;
+    	$condition['studentnum'] = '1';
     	$condition['password'] = $this->password;
     	$stu = $cinfo->findUsers($condition);
     	if($stu) {

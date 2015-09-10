@@ -5,13 +5,11 @@ use Think\Controller;
 class UserController extends Controller {
 
     private $users;
-    public function index(){
-    	$this->display('User/infoModify');
-    }
 
     private function sqlInit(){
         $this->users = M('users');
     }
+
 
     public function infoModify(){
         $this->sqlInit();
@@ -35,9 +33,35 @@ class UserController extends Controller {
 
 
     }
+
+    public function info(){
+        $this->sqlInit();
+        $condition = array(
+            "id"=>session('user_id')
+        );
+        $stu = $this->users->where($condition)->find();
+        $this->assign('stu',$stu);
+        $this->display('User/info');
+    }
+
+    public function apply(){
+        $this->display('User/apply');
+    }
+
+    public function infoModifyShow(){
+        $this->sqlInit();
+        $condition = array(
+            "id"=>session('user_id')
+        );
+        $stu = $this->users->where($condition)->find();
+        $this->assign('stu',$stu);
+        $this->display('User/infoModify');
+    }
+
     public function addUser(){
 
     }
+
     public function _empty() {
         $this->display('Errors/index');
     }

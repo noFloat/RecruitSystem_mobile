@@ -7,7 +7,6 @@ class IndexController extends BaseController {
 	private $users;
 	private $reservation;
 
-
     public function index(){
     	// if(session('?studentnum')) {
     		$this->sqlInit();
@@ -55,11 +54,11 @@ class IndexController extends BaseController {
     }
 
     private function userInit($stu){
-    	$conditin = array(
+    	$condition = array(
     		"user_id" => session('user_id'),
     		);
-    	$applyState = $this->reservation->where($condition2)->find();
-    	$this->checkState($stu,$applyState);
+    	$applyState = $this->reservation->where($condition)->find();
+        $this->checkState($stu,$applyState);
     }
 
     private function checkState($stu,$applyState){
@@ -67,9 +66,9 @@ class IndexController extends BaseController {
             $this->assign('stu',$stu);
     		$this->display('User/infoModify');exit;
     	}elseif($applyState == NULL){
-    		$this->display('apply/myapply');
+    		$this->display('apply/my_apply');exit;
     	}else{
-    		$this->display('User/apply');
+    		$this->display('User/apply');exit;
     	}
     }
     public function _empty() {

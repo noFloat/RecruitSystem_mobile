@@ -22,26 +22,26 @@
 		<div id="main">
 			<div class="form-control">
 				<span>姓名</span>
-				<span>王洋辉</span>
+				<span>{$stu.name}</span>
 			</div>
 			<div class="form-control">
 				<span>学号</span>
-				<span>2013214046</span>
+				<span>{$stu.studentnum}</span>
 			</div>
 			<div class="form-control">
 				<span>学院</span>
-				<span>软件工程学院</span>
+				<span>{$stu.acacdemy}</span>
 			</div>
 			<div class="form-control">
 				<span>手机</span>
-				<span>1331331133</span>
+				<span>{$stu.phone}</span>
 			</div>
 			<div class="form-control">
 				<span>个人介绍</span>
-				<p>会尽快的书法家看电视就可获得会尽快的书法家看电视就可获得会尽快的书法家看电视就可获得会尽快的书法家看电视就可获得会尽快的书法家看电视就可获得会尽快的书法家看电视就可获得会尽快的书法家看电视就可获得</p>
+				<p>{$stu.introduce}</p>
 			</div>
 			<div class="form-control">
-				<a href="user_info_modify.html"><button class="modify-info-btn">修改信息</button></a>
+				<a href="{:U('User/infoModifyShow')}"><button class="modify-info-btn">修改信息</button></a>
 			</div>
 		</div>
 

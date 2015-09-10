@@ -12,13 +12,13 @@
 
 		<div id="header">
 			<div>
-				<a href="user_info.html">
+				<a href="{:U('User/info')}">
 					<i class="iconfont">&#xe686;</i>
 				</a>
 			</div>
 			<p>红岩网校工作站</p>
 			<div>
-				<a href="user_apply.html">
+				<a href="{:U('User/apply')}">
 					<i class="iconfont">&#xe791;</i>
 				</a>
 			</div>
@@ -27,10 +27,12 @@
 		<div id="deparment-list">
 			<ul>
 				<volist name = "dep" id = "dep">
-					<li>
-						{$dep.department}
-						<span class="badge">已报名</span>
-					</li>
+					<a href = "__URL__/signup">
+						<li>
+							{$dep.department}
+							<span class="badge">{$dep.state}</span>
+						</li>
+					</a>
 				</volist>
 			</ul>
 		</div>

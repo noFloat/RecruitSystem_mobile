@@ -20,9 +20,4 @@ class BaseController extends Controller {
         //     }
         // }
     }
-
-    public function destroySession(){
-        session(null);
-        $this->redirect(CONTROLLER_NAME . '/index');
-    }
 }

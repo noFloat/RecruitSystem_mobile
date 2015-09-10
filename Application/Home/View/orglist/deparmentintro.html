@@ -12,13 +12,13 @@
 			
 		<div id="header">
 			<div>
-				<a href="user_info.html">
+				<a href="{:U('User/info')}">
 					<i class="iconfont">&#xe686;</i>
 				</a>
 			</div>
 			<p>WEB研发部</p>
 			<div>
-				<a href="user_apply.html">
+				<a href="{:U('User/apply')}">
 					<i class="iconfont">&#xe791;</i>
 				</a>
 			</div>
@@ -27,20 +27,12 @@
 		<div id="container">
 			
 			<div class="intro-logo">
-				<img src="__PUBLIC__/images/logo.png">
+				<img src="__PUBLIC__/{$content.image}">
 			</div>
 
 			<div class="intro-content">
 				<p>
-					这是部门的介绍啊
-					这是部门的介绍啊
-					这是部门的介绍啊
-					这是部门的介绍啊
-					这是部门的介绍啊
-					这是部门的介绍啊
-					这是部门的介绍啊
-					这是部门的介绍啊
-					这是部门的介绍啊
+					{$content.content}
 				</p>
 			</div>
 			
