@@ -16,7 +16,7 @@
 					<i class="iconfont">&#xe686;</i>
 				</a>
 			</div>
-			<p>红岩网校工作站</p>
+			<p>{$org.organization}</p>
 			<div>
 				<a href="{:U('User/apply')}">
 					<i class="iconfont">&#xe791;</i>
@@ -27,7 +27,7 @@
 		<div id="deparment-list">
 			<ul>
 				<volist name = "dep" id = "dep">
-					<a href = "__URL__/signup">
+					<a href = "{:U('Organization/signup')}?dep_id={$dep.id}">
 						<li>
 							{$dep.department}
 							<span class="badge">{$dep.state}</span>
