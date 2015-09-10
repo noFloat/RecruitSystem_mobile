@@ -15,7 +15,7 @@ class OrganizationController extends Controller {
 	private function sqlInit(){
 		$this->department = M('department');
 		$this->reservation = M('reservation');
-		$this->department_intro = M('departmen_intro');
+		$this->department_intro = M('intro');
 		$this->organization = M('organization');
 		$this->flow = M('flow');
 	}
@@ -44,12 +44,8 @@ class OrganizationController extends Controller {
 		for($d = 0;$d < $choose_num;$d++){
 			for($i = 0;$i < $dep_num;$i++){
 				if($dep[$i]['department'] == $choose[$d]['department']){
-					$site = ""; 
-					$dep[$i]['upon'] = $site;
 					$dep[$i]['state'] = "已报名";
 				}else{//变量赋值有坑
-					$site = " __URL__"; 
-					$dep[$i]['upon'] = $site;
 				}
 			}
 		}
@@ -62,31 +58,49 @@ class OrganizationController extends Controller {
 	}
 
 	public function department(){
-
+		
 		$this->redirect('orglist/deparment');
 	}
 
-	public function signup(){
+	public function signup(){//显示信息
 		$this->sqlInit();
 		$condition = array(
 			'department_id' => I("get.dep_id")
 		);
 		$content = $this->department_intro->where($condition)->find();
 		session('now_dep_id',I('get.dep_id'));
+		$condition2 = array(
+			"id" => I("get.dep_id")
+		);
+		$deparment = $this->department->where($condition2)->find();
+		$this->assign('dep_name',$deparment);
 		$this->assign('content',$content);
+
+		$condition3 = array(
+			'user_id' => session('user_id'),
+			'depatment_id' =>session('now_dep_id')
+		);
+
+		$re = $this->reservation->where($condition3)->find();
+		if($re){
+			$this->assign('disabled','disabled');
+		}else{
+			$this->assign('disabled','');
+		}
+
 		$this->display('orglist/deparmentintro');
 	}
 
-	public function addPeo(){
+	public function addPeo(){//添加人
 		$this->sqlInit();
 		$condition = array(
 			"user_id" =>session('user_id'),
-			"deparment_id"=>session('now_dep_id')
+			"depament_id"=>session('now_dep_id')
 		);
 		$stu = $this->reservation->where($condition)->find();
-		// if($stu){
-		// 	$this->display('orglist/orglist');exit;
-		// }
+		if($stu){
+			$this->display('orglist/orglist');exit;
+		}
 		$condtion2 = array(
 			"department_id"=>session('now_dep_id')
 		);
@@ -98,7 +112,7 @@ class OrganizationController extends Controller {
 		);
 		$this->reservation->data($content)->add();
 		$user_id = session('user_id');
-		$reservation = $this->reservation->where("user_id = '$user_id'")->join('flow ON reservation.depatment_id = flow.department_id')->select();
+		$reservation = $this->reservation->where("user_id = '$user_id'")->join('flow ON reservation.depatment_id = flow.dept_id')->select();
 		var_dump($reservation);exit;
 		$this->display('User/process');
 	}

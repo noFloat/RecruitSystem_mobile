@@ -5,9 +5,19 @@ use Think\Controller;
 class UserController extends Controller {
 
     private $users;
+    private $department;
+    private $reservation;
+    private $department_intro;
+    private $organization;
+    private $flow;
 
     private function sqlInit(){
         $this->users = M('users');
+        $this->department = M('department');
+        $this->reservation = M('reservation');
+        $this->department_intro = M('intro');
+        $this->organization = M('organization');
+        $this->flow = M('flow');
     }
 
 
@@ -45,6 +55,14 @@ class UserController extends Controller {
     }
 
     public function apply(){
+        $this->sqlInit();
+        $user_id = session('user_id');
+        $condition = array(
+            "user_id" =>$user_id,
+        );
+        $this->reservation->where($condition)->select();
+        $flow = $this->reservation->where($condition)->join('flow ON reservation.depatment_id = flow.dept_id ')->select();
+        $this->assign('flow',$flow);
         $this->display('User/apply');
     }
 

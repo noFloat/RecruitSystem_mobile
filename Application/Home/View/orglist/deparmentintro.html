@@ -16,7 +16,7 @@
 					<i class="iconfont">&#xe686;</i>
 				</a>
 			</div>
-			<p>WEB研发部</p>
+			<p>{$dep_name.department}</p>
 			<div>
 				<a href="{:U('User/apply')}">
 					<i class="iconfont">&#xe791;</i>
@@ -37,7 +37,10 @@
 			</div>
 			
 			<div>
-				<button class="apply-btn"><a style = "text-decoration:none;"href ="{:U('Organization/addPeo')}" >我要报名</a></button>
+				<a style = "text-decoration:none;"href ="{:U('Organization/addPeo')}" >
+					<button class="apply-btn" {$disabled}>我要报名
+					</button>
+				</a>
 			</div>
 
 

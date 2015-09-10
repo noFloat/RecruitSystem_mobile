@@ -25,8 +25,7 @@ class LoginController extends Controller {
         		$content['updated_at'] = date("Y-m-d H:i:s", time());
         		$cinfo->where($condition)->save($content);
                 $this->assign(array(
-                    'checkLogin' => '退出登录',
-                    'checkState' => U(CONTROLLER_NAME . '/destroySession')
+                    
                 ));
                 $this->assign('name' ,session('name'));
                 $this->redirect('Index/index');
