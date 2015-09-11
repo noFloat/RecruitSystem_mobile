@@ -84,7 +84,7 @@ class UserController extends Controller {
         $condition = array(
             "user_id" =>$user_id,
         );
-        $choose_dep = $this->reservation->where($condition)->field('depatment_id')->select();
+        $choose_dep = $this->reservation->where($condition)->field('depatment_id,state')->select();
         $choose_dep_num = $this->reservation->where($condition)->count();
         $all_dep = array();
         for($i = 0;$i < $choose_dep_num ; $i++){
@@ -110,34 +110,38 @@ class UserController extends Controller {
                 4 => 'cyan step',
                 5 => 'blue step',
             );
+            $now_type = $this->set($all_dep[$i]['content']);  
             for($z = 0 ;$z < $flow_num;$z++){
                 if($z < $flow[0]['flow_id']){
                     $all_dep[$i]['content'][$z]['class'] = $class_name[$z];
                 }else{
                     $all_dep[$i]['content'][$z]['class'] = $class_name[$z]." off";
                 }
-            }
+                if($z+1 == $flow[0]['flow_id'] &&$choose_dep[$i]['state'] == 0){
+                    $all_dep[$i]['content'][$z]['class'] = $class_name[$z]." off";
+                    $all_dep[$i]['content'][$z]['type'] = '拒绝';
+                }else{
+                    $all_dep[$i]['content'][$z]['type'] = $now_type[$z];             
+                }
+            }      
             $all_dep[$i]['dep_id'] = $dep_name['id'];
             $all_dep[$i]['dep'] = $dep_name['department'];
         }
-        var_dump($all_dep[0]);
         $this->assign('all_dep',$all_dep);
-        $flow = $this->reservation->where($condition)->join('flow ON reservation.depatment_id = flow.dept_id ')->field('reservation.flow_id,reservation.depatment_id,flow.type')->select();
-        $flow_num = $this->reservation->where($condition)->join('flow ON reservation.depatment_id = flow.dept_id ')->count();
-        $this->set($flow,$flow_num);
-        $this->assign('flow',$flow);
         $this->display('User/apply');
     }
-    public function set($flow,$flow_num){
+    public function set($flow){
         $test = $flow;
         $dept = array();
-        $num = array('1' => 0, '2' => 0);
+        $num = array('1' => 0, '2' => 0,'3'=>0);
         foreach($test as $key => $val) {
             $_type = $val['type'];
             if($_type == 1) {
                 $dept[] = '第' . ++$num[$_type] . '轮面试';
-            } else if ($_type == 2) {
+            } elseif ($_type == 2) {
                 $dept[] = '第' . ++$num[$_type] . '轮笔试';
+            } elseif($_type == 3) {
+                $dept[] = '录取';
             }
         }
         if(count($dept) <= 2) {
@@ -145,6 +149,7 @@ class UserController extends Controller {
                 return mb_substr($e, 3, 2, 'utf-8');
             }, $dept);
         }
+        return $dept;
 
     }
     public function infoModifyShow(){
@@ -158,8 +163,71 @@ class UserController extends Controller {
     }
 
     public function process(){
+        $this->sqlInit();
+        $state = I('get.state');
+        $this->assign('state',$state);
+        $dep_id = I('get.dep_id');
+        $condition = array(
+            "user_id" => session('user_id'),
+            "depatment_id" => $dep_id
+        );
+        $flow_id = $this->reservation->where($condition)->field('flow_id')->find();
+        $condition2 = array(
+            "id" => $flow_id['flow_id']
+        );
+        $flow = $this->flow->where($condition2)->find();
+        $this->assign('flow',$flow);
+        $condition3 = array(
+            "id" => $dep_id
+        );
+        $now_dep = $this->department->where($condition3)->find();
+        $this->assign('dep',$now_dep);
+        $condition4 = array(
+            "dept_id" => $dep_id
+        );
+        $all_flow = $this->flow->where($condition4)->select();
+        $this->pic($all_flow,$dep_id);
         $this->display('User/process');
     }
+
+    public function pic($all_flow,$dep_id){
+        $user_id = session('user_id');
+            $class_name = array(
+                0 => 'red step',
+                1 => 'ora step',
+                2 => 'yell step',
+                3 => 'gre step',
+                4 => 'cyan step',
+                5 => 'blue step',
+            );
+            $all_dep = array();
+            $now_type = $this->set($all_flow);  
+            $condition = array(
+                "dept_id"=> $dep_id
+            );
+            $condition3 = array(
+                "depatment_id"=> $dep_id,
+                "user_id" => session('user_id')
+            );
+            $flow_num = $this->flow->where($condition)->count();
+            $flow = $this->reservation->where($condition3)->select();
+            for($z = 0 ;$z < $flow_num;$z++){
+                if($z < $flow[0]['flow_id']){
+                    $all_dep[$z]['class'] = $class_name[$z];
+                }else{
+                    $all_dep[$z]['class'] = $class_name[$z]." off";
+                }
+                if($z+1 == $flow[0]['flow_id'] &&$choose_dep[$i]['state'] == 0){
+                    $all_dep[$z]['class'] = $class_name[$z]." off";
+                    $all_dep[$z]['type'] = '拒绝';
+                    $all_dep['state'] = "拒绝";
+                }else{
+                    $all_dep[$z]['type'] = $now_type[$z];  
+                    $all_dep['state'] = $now_type[$z];           
+                }
+            }    
+            $this->assign('all_dep',$all_dep);
+        }
 
     public function _empty() {
         $this->display('Errors/index');

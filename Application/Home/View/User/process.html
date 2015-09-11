@@ -9,15 +9,28 @@
 </head>
 <body>
 	<div class="header">进度查看</div>
-	<h1 class="department">红岩网校工作站运营维护部</h1>
-	<div class="process"></div>
-	<div class="status">
+	<h1 class="department">{$dep['department']}</h1>
+	<div class="process">
+		   <div class="rate">
+                <volist name = "all_dep" id = "all">
+                        <div class="{$all.class}">
+                            <div class="line"></div>
+                            <div class="mid">
+                                <div class="point"></div>
+                                <div class="cube"></div>
+                            </div>
+                            <p>{$all.type}</p>
+                        </div>
+                </volist>
+            </div>
+	</div>
+	<div class="status">{$all.state}
 		<h1>当前状态:<span>一面中</span></h1><!-- 资料审核中，x面中，录取成功 -->
-		<h2>面试时间:<span>9月17日17:00</span></h2>
-		<h2>面试地点:<span>2304</span></h2>
+		<h2>面试时间:<span>{$flow.time}</span></h2>
+		<h2>面试地点:<span>{$flow.location}</span></h2>
 	</div>
 	<div class="button">
-		<a href="user_apply.html" class="back">返回</a>	
+		<a href="{:U('User/apply')}" class="back">返回</a>	
 	</div>
 	<script>
 		var steps = 4, //总的阶段数
