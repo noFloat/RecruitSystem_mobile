@@ -45,7 +45,7 @@ class OrganizationController extends Controller {
 			for($i = 0;$i < $dep_num;$i++){
 				if($dep[$i]['department'] == $choose[$d]['department']){
 					$dep[$i]['state'] = "已报名";
-				}else{//变量赋值有坑
+				}else{
 				}
 			}
 		}
@@ -113,7 +113,6 @@ class OrganizationController extends Controller {
 		$this->reservation->data($content)->add();
 		$user_id = session('user_id');
 		$reservation = $this->reservation->where("user_id = '$user_id'")->join('flow ON reservation.depatment_id = flow.dept_id')->select();
-		var_dump($reservation);exit;
 		$this->display('User/process');
 	}
 

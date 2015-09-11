@@ -2,7 +2,7 @@
     @import 'base.scss';
 
     #header {
-        @include pageTitle(1, 2);
+        @include pageTitle(1, 'right');
     }
 
     #main {
@@ -36,15 +36,15 @@
                 display: block; 
                 letter-spacing: 0;
             }
-            textarea {
+            p {
+                min-height: 35rem;
                 margin-top: 2rem;
-                width: 92%;
-                height: 35rem;
-                border: 1px solid #757575;
-                font-size: 3rem;
+                width: 100%;
+                font-size: 2.2rem;
                 color: #666;
-                padding: 2% 4%;
-                border-radius: 1rem;
+                padding: 2% 0;
+                letter-spacing: .3rem;
+                text-indent: 6rem;
             }
         }
 

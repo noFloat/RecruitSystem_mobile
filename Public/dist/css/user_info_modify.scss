@@ -2,7 +2,7 @@
 	@import 'base.scss';
 
 	#header {
-        @include pageTitle(1, 2);
+        @include pageTitle(1, 'right');
     }
 
     #main {

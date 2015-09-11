@@ -13,11 +13,14 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale; }
 
-.icon-jikediancanicon35:before {
-  content: "\e791"; }
+.icon-baobeixiangqing:before {
+  content: "\e601"; }
 
 .icon-yonghu:before {
-  content: "\e686"; }
+  content: "\e602"; }
+
+.icon-liebiao:before {
+  content: "\e600"; }
 
 @media only screen and (min-width: 640px) and (max-width: 720px) {
   html {
@@ -101,11 +104,12 @@ html, body {
     cursor: pointer; }
     #header div a {
       color: transparent; }
-  #header div {
-    padding-left: 5%; }
   #header p {
-    width: 77.75%;
-    padding-right: 7.25%; }
+    width: 74%; }
+  #header div:first-child {
+    padding-left: 3%; }
+  #header div:last-child {
+    padding-right: 3%; }
 
 .bar {
   padding-bottom: 40px;
@@ -235,7 +239,7 @@ html, body {
   height: 9.5rem;
   width: 100%;
   border-radius: 1rem;
-  border: 1px solid #666;
+  border: 1px solid #dc9822;
   -webkit-font-smoothing: subpixel-antialiased; }
 
 .apply-btn-container {

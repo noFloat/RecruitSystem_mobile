@@ -10,126 +10,38 @@
 	<body>
 
 		<div id="header">
-            <a href="{:U('User/info')}">
-                <div>
-                    <i class="iconfont">&#xe686;</i>
-                </div>
-            </a>
+            <div>
+                <a href="{:U('Organization/orglist')}">
+                    <i class="iconfont">&#xe600;</i>
+                </a>
+            </div>
 			<p>我的报名</p>
+            <div>
+                <a href="{:U('User/info')}">
+                    <i class="iconfont">&#xe602;</i>
+                </a>
+            </div>
 		</div>
-
+        <volist name = "all_dep" id = "all_dep">
         <div class="bar">
             <div class="title">
-                <p>红岩网校工作站运营维护部</p>
+                <p>{$all_dep.dep}</p>
             </div>
             <div class="rate">
-                <div class="red step">
-                    <div class="line"></div>
-                    <div class="mid">
-                        <div class="point"></div>
-                        <div class="cube"></div>
-                    </div>
-                    <p>资料审核</p>
-                </div>
-                <div class="ora step">
-                    <div class="line"></div>
-                    <div class="mid">
-                        <div class="point"></div>
-                        <div class="cube"></div>
-                    </div>
-                    <p>一面</p>
-                </div>
-                <div class="yell step">
-                    <div class="line"></div>
-                    <div class="mid">
-                        <div class="point"></div>
-                        <div class="cube"></div>
-                    </div>
-                    <p>二面</p>
-                </div>
-                <div class="gre step">
-                    <div class="line"></div>
-                    <div class="mid">
-                        <div class="point"></div>
-                        <div class="cube"></div>
-                    </div>
-                    <p>三面</p>
-                </div>
-                <div class="cyan step">
-                    <div class="line"></div>
-                    <div class="mid">
-                        <div class="point"></div>
-                        <div class="cube"></div>
-                    </div>
-                    <p>笔试</p>
-                </div>
-                <div class="blue step off">
-                    <div class="line"></div>
-                    <div class="mid">
-                        <div class="point"></div>
-                        <div class="cube"></div>
-                    </div>
-                    <p>录取</p>
-                </div>
+                <volist name = "all_dep['content']" id = "all">
+                        <div class="{$all.class}">
+                            <div class="line"></div>
+                            <div class="mid">
+                                <div class="point"></div>
+                                <div class="cube"></div>
+                            </div>
+                            <p>{$all.type}</p>
+                        </div>
+                </volist>
             </div>
-            <a href="process.html">点击查看详情</a>
+            <a href="{:U('User/process')}?dep_id={$all_dep.dep_id}">点击查看详情</a>
         </div>
-        <div class="bar">
-            <div class="title">
-                <p>红岩网校工作站运营维护部</p>
-            </div>
-            <div class="rate">
-                <div class="red step">
-                    <div class="line"></div>
-                    <div class="mid">
-                        <div class="point"></div>
-                        <div class="cube"></div>
-                    </div>
-                    <p>资料审核</p>
-                </div>
-                <div class="ora step">
-                    <div class="line"></div>
-                    <div class="mid">
-                        <div class="point"></div>
-                        <div class="cube"></div>
-                    </div>
-                    <p>一面</p>
-                </div>
-                <div class="yell step">
-                    <div class="line"></div>
-                    <div class="mid">
-                        <div class="point"></div>
-                        <div class="cube"></div>
-                    </div>
-                    <p>二面</p>
-                </div>
-                <div class="gre step">
-                    <div class="line"></div>
-                    <div class="mid">
-                        <div class="point"></div>
-                        <div class="cube"></div>
-                    </div>
-                    <p>三面</p>
-                </div>
-                <div class="cyan step">
-                    <div class="line"></div>
-                    <div class="mid">
-                        <div class="point"></div>
-                        <div class="cube"></div>
-                    </div>
-                    <p>笔试</p>
-                </div>
-                <div class="blue step off">
-                    <div class="line"></div>
-                    <div class="mid">
-                        <div class="point"></div>
-                        <div class="cube"></div>
-                    </div>
-                    <p>录取</p>
-                </div>
-            </div>
-            <a href="process.html">点击查看详情</a>
-        </div>
+        </volist>
         <!-- <div class="screen">
             <div class="apply-btn-container">
                 <button class="apply-btn">我要报名</button>

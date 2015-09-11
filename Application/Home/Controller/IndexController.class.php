@@ -68,7 +68,8 @@ class IndexController extends BaseController {
     	}elseif($applyState == NULL){
     		$this->display('apply/my_apply');exit;
     	}else{
-    		$this->display('User/apply');exit;
+            $user = A('User');
+    		$user->apply();exit;
     	}
     }
     public function _empty() {

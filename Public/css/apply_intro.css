@@ -13,11 +13,14 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale; }
 
-.icon-jikediancanicon35:before {
-  content: "\e791"; }
+.icon-baobeixiangqing:before {
+  content: "\e601"; }
 
 .icon-yonghu:before {
-  content: "\e686"; }
+  content: "\e602"; }
+
+.icon-liebiao:before {
+  content: "\e600"; }
 
 @media only screen and (min-width: 640px) and (max-width: 720px) {
   html {
@@ -63,7 +66,7 @@ html, body {
 /*
  * 组件
  */
-.pageTitle-p {
+.pageTitle-p, #header p {
   padding: 0;
   margin: 0;
   float: left;
@@ -74,7 +77,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   letter-spacing: .5rem; }
 
-.pageTitle-i {
+.pageTitle-i, #header div i {
   font-size: 4rem;
   line-height: 10rem;
   color: white;
@@ -88,19 +91,21 @@ html, body {
  *  注意: icon图标用div包裹
  */
 #header {
+  padding: 0;
+  margin: 0;
   background-color: #ffbb44;
   height: 10rem;
-  width: 100%;
-  padding: 0;
-  margin: 0; }
-  #header p {
-    padding: 0;
-    margin: 0;
-    font-size: 4rem;
-    line-height: 10rem;
-    color: white;
+  width: 100%; }
+  #header div {
+    float: left;
+    width: 10%;
+    height: 10rem;
     text-align: center;
-    letter-spacing: .5rem; }
+    cursor: pointer; }
+    #header div a {
+      color: transparent; }
+  #header p {
+    width: 100%; }
 
 #main {
   padding: 0 3rem; }

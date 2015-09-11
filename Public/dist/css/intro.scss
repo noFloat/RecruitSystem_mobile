@@ -1,7 +1,7 @@
     @import 'base.scss';
     
     #header {
-        // @include pageTitle(0);
+        @include pageTitle(2);
     }
 
     #container {
@@ -15,10 +15,12 @@
             }
         }
         .intro-content {
+            min-height: 32rem;
             p {
                 font-size: 3rem;
                 line-height: 4rem;
                 color: #000;
+                margin: 3rem 0;
             }
         }
         .apply-btn {

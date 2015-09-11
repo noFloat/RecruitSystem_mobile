@@ -2,18 +2,7 @@
 	@import 'base.scss';
 
 	#header {
-        background-color: $orange;
-        height: $headerHeight;
-        width: 100%;
-        @include pmClear;
-        p {
-            @include pmClear;
-            font-size: 4rem;
-            line-height: 10rem;
-            color: white;
-            text-align: center;
-            letter-spacing: .5rem;
-        }
+        @include pageTitle(0);
     }
 
     #main {
